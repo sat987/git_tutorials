@@ -1,0 +1,73 @@
+Initialize git instance at present working directory (pwd):
+git init
+
+Shows the status of the files as modified/untracked/deleted/new file:
+git status
+
+Adds the resprective files to Staging Index:
+git add abc1.txt abc2.txt
+
+(or)
+For all files:
+git add .
+
+Same can be used for regular expression also:
+git add <regular_expression>
+
+Commit adds the staging index files to Stable Repository with a message that is specified by -m option (upto 60 characters), if -m option is not passed then Text Editor will be automatically opened to specify any length message.
+
+git commit -m "Message Goes Here"
+
+Adds the file to staging and also commits the files:
+git commit -am "Message Goes Here"		(not for moved/deleted files)
+
+Shows the log of git commits with relevant information like HEAD pointer, current branch, Author name, email, date and time of commit etc.
+git log
+git log -n 2	(or) git log -2		(both are same)
+git log --oneline
+
+Shows the configuration list (which are set globaly and localy):
+git config --list
+
+Settings configuration inside the current repository:
+git config user.name "Anurag"
+git config user.email "abc@gmail.com"
+
+For global configuration (i.e. for whole system use --global option)
+
+Shows difference from latest commit and current working directory
+git diff
+git diff --color-words		(shows only the words difference)
+git diff --staged		(shows difference between staged index and latest commit in repository)
+
+Normal Linux command for difference between one file and another file
+diff file1.txt file2.txt
+
+
+Removing a file from Repository:
+rm file_name
+git status
+git add .
+git commit -m "Message goes here"
+
+
+Renaming file:
+mv file1.txt file2.txt
+git status
+git add .
+git commit -m "Message goes here"
+
+(or)
+git mv file1.txt file2.txt
+git commit -am "Message goes here"
+
+
+Recovering file from previous version:
+git checkout <tree_ish> <file/folder name>		(check-out from the tree_ish mentioned)
+git checkout -- <file/folder name>			(check-out from the latest commit having this file/folder name)
+
+For now <tree_ish> is the Hash value if will be told in detail in the next class.
+
+NOTE: checkout is used for getting the file/folder name from the previous versions
+
+git checkout <tree_ish>					(check-out but detaches the HEAD for temporary purposes only, for revert back other command will be told in the upcoming class)
